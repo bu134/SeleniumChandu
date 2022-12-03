@@ -20,7 +20,7 @@ public class TestVerifyHomepage extends BaseTestNG implements HomePageLocators {
         try{
             driver.wait(10000);
         }catch (Exception e){
-            System.out.println("Error occured while waiting : " + e.getMessage());
+            System.out.println("Error occurred while waiting : " + e.getMessage());
         }
     }
 }

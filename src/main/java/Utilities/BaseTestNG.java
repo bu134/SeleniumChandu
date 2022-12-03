@@ -19,14 +19,6 @@ public class BaseTestNG {
             driver = new ChromeDriver();
         }
 
-//        @BeforeMethod
-//        public void loginHomepage()
-//        {
-//            driver.findElement(By.name("uid")).sendKeys("****");
-//            driver.findElement(By.name("password")).sendKeys("****");
-//            driver.findElement(By.name("btnLogin")).click();
-//        }
-
         @AfterTest
         public void closeBrowser()
         {
