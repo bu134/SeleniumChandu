@@ -1,8 +1,8 @@
 package Utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,15 +13,27 @@ public class BaseTestNG {
         public WebDriver driver;
 
         @BeforeTest
-        public void SetupBrowserDriver()
-        {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+        public void driverLaunch(){
+                System.out.println("Inside Before test method");
+                driver = BrowserFactory.driverSetup(driver, "chrome", baseurl);
+                BrowserFactory.implicitWaitMethod(driver);
         }
-
         @AfterTest
         public void closeBrowser()
         {
-            driver.quit();
+                System.out.println("Inside After test method");
+                BrowserFactory.quitBrowser(driver);
         }
+
+        @AfterClass
+        public void afterClassMethod()
+        {
+                System.out.println("Inside After class method");
+        }
+
+        @AfterMethod
+        public void afterMethod(){
+                System.out.println("Inside After Method method");
+        }
+
 }
